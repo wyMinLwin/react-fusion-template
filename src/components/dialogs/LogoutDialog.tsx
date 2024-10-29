@@ -32,7 +32,7 @@ const LogoutDialog = ({ children }: LogoutDialogProps) => {
 	return (
 		<AlertDialog>
 			<AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
-			<AlertDialogContent>
+			<AlertDialogContent className="max-w-[400px] w-[90vw] rounded-sm">
 				<AlertDialogHeader>
 					<AlertDialogTitle>Log out</AlertDialogTitle>
 					<AlertDialogDescription>
