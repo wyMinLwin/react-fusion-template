@@ -1,15 +1,16 @@
 import axios from "axios";
 import type { AxiosResponse, InternalAxiosRequestConfig } from "axios";
+import Cookies from 'js-cookie'
 
-axios.defaults.baseURL = 'https://dummyjson.com/';
+axios.defaults.baseURL = 'https://crc-api-test.azurewebsites.net/api/v1/';
 
 // Add a request interceptor
 axios.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
-    if (token) {
-      config.headers!.Authorization = `Bearer ${token}`;
-    }
+      const token = Cookies.get('react-template-app-token');
+        if (token) {
+          config.headers!.Authorization = `Bearer ${token}`;
+        }
     return config;
   },
   (error) => {

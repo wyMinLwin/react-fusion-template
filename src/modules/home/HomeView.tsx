@@ -1,4 +1,3 @@
-import api from "@/api";
 import { Button } from "@/components/ui/button";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
@@ -8,7 +7,6 @@ const HomeView = () => {
 	const changeLanguage = (lng: string) => {
 		i18next.changeLanguage(lng);
 	};
-	const testData = api.test.getTestData.useQuery();
 	return (
 		<div>
 			<h1 className="">Template: React-std</h1>
@@ -18,16 +16,6 @@ const HomeView = () => {
 				<Button onClick={() => changeLanguage("en")}>English</Button>
 				<Button onClick={() => changeLanguage("mm")}>Myanmar</Button>
 			</div>
-
-			{testData.isLoading ? (
-				<p>Loading...</p>
-			) : (
-				<div>
-					{testData.data?.map((item) => (
-						<div key={item.id}>{item.title}</div>
-					))}
-				</div>
-			)}
 		</div>
 	);
 };

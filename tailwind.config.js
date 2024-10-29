@@ -5,8 +5,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				title: ['"Karla"', 'sans-serif'],
-				display: ['"Inconsolata"', 'monospace']
+				title: ['"Sintony"', 'sans-serif'],
+				display: ['"Poppins"', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
