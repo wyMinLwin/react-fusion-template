@@ -1,7 +1,8 @@
-import DefaultLayout from "@/layouts/DefaultLayout";
-import HomeView from "@/modules/home/HomeView";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import DefaultLayout from "@/layouts/DefaultLayout"
+import HomeView from "@/modules/home/HomeView"
+import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import LoginView from "@/modules/auth/login/LoginView"
 
 const router = createBrowserRouter([
 	{
@@ -14,17 +15,30 @@ const router = createBrowserRouter([
 			},
 		],
 	},
-]);
+	{
+		path: "/auth",
+		children: [
+			{
+				path: "",
+				element: <Navigate to="login" replace />
+			},
+			{
+				path: "login",
+				element: <LoginView />,
+			},
+		],
+	},
+])
 
 const Wrapper = () => {
-	const queryClient = new QueryClient();
+	const queryClient = new QueryClient()
 	return (
 		<>
 			<QueryClientProvider client={queryClient}>
 				<RouterProvider router={router}></RouterProvider>
 			</QueryClientProvider>
 		</>
-	);
-};
+	)
+}
 
-export default Wrapper;
+export default Wrapper
