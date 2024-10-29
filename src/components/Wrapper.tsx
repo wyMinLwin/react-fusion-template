@@ -4,6 +4,7 @@ import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import LoginView from "@/modules/auth/login/LoginView"
 import TodoListView from "@/modules/to-do-list/TodoListView.tsx";
+import { Toaster } from "./ui/toaster"
 
 const router = createBrowserRouter([
 	{
@@ -42,6 +43,7 @@ const Wrapper = () => {
 			<QueryClientProvider client={queryClient}>
 				<RouterProvider router={router}></RouterProvider>
 			</QueryClientProvider>
+			<Toaster />
 		</>
 	)
 }

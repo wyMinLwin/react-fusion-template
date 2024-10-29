@@ -3,6 +3,10 @@ import ReactIcon from "@/assets/react.svg"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import { useState } from "react"
+import { useToast } from "@/hooks/use-toast"
+import { loginMutation } from "@/api/auth/queries"
+import { useAuth, useBlockAnimation } from "@/hooks"
 
 import {
 	Form,
@@ -14,13 +18,24 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { useNavigate } from "react-router-dom"
 
 const FormSchema = z.object({
 	email: z.string().email(),
-	password: z.string().min(4),
+	password: z.string().min(4, {
+		message: "Password must contain at least 4 characters.",
+	}),
 })
 
 const LoginView = () => {
+	const navigate = useNavigate()
+
+	const { toast } = useToast()
+	const { blocks } = useBlockAnimation()
+	const { userLogin } = useAuth()
+
+	const [isLoading, setIsLoading] = useState(false)
+
 	const form = useForm<z.infer<typeof FormSchema>>({
 		resolver: zodResolver(FormSchema),
 		defaultValues: {
@@ -29,8 +44,38 @@ const LoginView = () => {
 		},
 	})
 
-	function onSubmit(data: z.infer<typeof FormSchema>) {
-		console.log("🚀 ~ onSubmit ~ data:", data)
+	const { mutate: loginUser } = loginMutation.useMutation({
+		onMutate: () => setIsLoading(true),
+		onSuccess: (data) => {
+			userLogin(data.token)
+
+			navigate("/", { replace: true })
+
+			toast({
+				title: `You logged in with the following email: ${
+					form.getValues().email
+				}`,
+				description: "Successful login",
+				variant: "success",
+			})
+		},
+		onError: (error) => {
+			console.error("Error during login:", error)
+
+			toast({
+				title: `Login fail!`,
+				description:
+					"An error occurred during login. Please try again.",
+				variant: "destructive",
+			})
+		},
+		onSettled: () => {
+			setIsLoading(false)
+		},
+	})
+
+	async function onSubmit(data: z.infer<typeof FormSchema>) {
+		loginUser(data)
 	}
 
 	return (
@@ -42,8 +87,8 @@ const LoginView = () => {
 						alt="React Logo"
 						className="w-12 h-12"
 					/>
-					<p className="text-[10px] leading-[0.5rem] font-bold tracking-normal pb-4">
-						<span className="text-indigo-700">FUSION </span>
+					<p className="text-[10px] leading-[0.5rem] text-gray-400 font-semibold tracking-normal pb-4">
+						<span className="text-primary">FUSION </span>
 						SOLUTION
 					</p>
 
@@ -69,6 +114,7 @@ const LoginView = () => {
 										<FormControl>
 											<Input
 												placeholder="Email"
+												disabled={isLoading}
 												{...field}
 											/>
 										</FormControl>
@@ -85,7 +131,9 @@ const LoginView = () => {
 										<FormLabel>Password</FormLabel>
 										<FormControl>
 											<Input
+												type="password"
 												placeholder="Password"
+												disabled={isLoading}
 												{...field}
 											/>
 										</FormControl>
@@ -95,16 +143,17 @@ const LoginView = () => {
 							/>
 							<Button
 								type="submit"
-								className="hover:bg-indigo-600 w-full bg-indigo-700"
+								className="w-full"
+								disabled={isLoading}
 							>
-								Login
+								{isLoading ? "Logging in..." : "Login"}
 							</Button>
 						</form>
 					</Form>
 
-					<p className="text-xs text-center">
+					<p className="py-1 text-xs text-center">
 						Don't have an account?{" "}
-						<span className="hover:underline active:underline font-medium text-indigo-700 cursor-pointer">
+						<span className="hover:underline active:underline text-primary font-medium cursor-pointer">
 							Sign up for free
 						</span>
 					</p>
@@ -112,16 +161,9 @@ const LoginView = () => {
 			</div>
 
 			<ul className="login-boxes z-0">
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
+				{blocks.map((b, i) => {
+					return <li key={i} style={b}></li>
+				})}
 			</ul>
 		</div>
 	)
