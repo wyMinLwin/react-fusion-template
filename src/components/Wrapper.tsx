@@ -6,6 +6,8 @@ import LoginView from "@/modules/auth/login/LoginView"
 import TodoListView from "@/modules/to-do-list/TodoListView.tsx"
 import { Toaster } from "./ui/toaster"
 import NotFoundView from "@/modules/not-found/NotFoundView"
+import AuthLayout from "@/layouts/AuthLayout"
+import LogView from "@/modules/log/LogView"
 
 const router = createBrowserRouter([
 	{
@@ -20,10 +22,15 @@ const router = createBrowserRouter([
 				path: "to-do-list",
 				element: <TodoListView />,
 			},
+			{
+				path: "log",
+				element: <LogView />,
+			},
 		],
 	},
 	{
 		path: "/auth",
+		element: <AuthLayout />,
 		children: [
 			{
 				path: "",

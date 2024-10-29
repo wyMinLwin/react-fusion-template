@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 const FormSchema = z.object({
 	email: z.string().email(),
@@ -28,6 +28,7 @@ const FormSchema = z.object({
 })
 
 const LoginView = () => {
+	const location = useLocation()
 	const navigate = useNavigate()
 
 	const { toast } = useToast()
@@ -49,7 +50,10 @@ const LoginView = () => {
 		onSuccess: (data) => {
 			userLogin(data.token)
 
-			navigate("/", { replace: true })
+			const routeToRedirect = location.state?.from
+				? location.state.from.pathname
+				: "/"
+			navigate(routeToRedirect, { replace: true })
 
 			toast({
 				title: `You logged in with the following email: ${
