@@ -3,8 +3,9 @@ import HomeView from "@/modules/home/HomeView"
 import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import LoginView from "@/modules/auth/login/LoginView"
-import TodoListView from "@/modules/to-do-list/TodoListView.tsx";
+import TodoListView from "@/modules/to-do-list/TodoListView.tsx"
 import { Toaster } from "./ui/toaster"
+import NotFoundView from "@/modules/not-found/NotFoundView"
 
 const router = createBrowserRouter([
 	{
@@ -17,8 +18,8 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "to-do-list",
-				element: <TodoListView />
-			}
+				element: <TodoListView />,
+			},
 		],
 	},
 	{
@@ -26,13 +27,17 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: "",
-				element: <Navigate to="login" replace />
+				element: <Navigate to="login" replace />,
 			},
 			{
 				path: "login",
 				element: <LoginView />,
 			},
 		],
+	},
+	{
+		path: "*",
+		element: <NotFoundView />,
 	},
 ])
 
