@@ -23,3 +23,24 @@
 		background-position: 250% 0, 250% 0;
 	}
 }
+
+@keyframes scale-up-ver-top {
+	0% {
+		transform: scaleY(0);
+		transform-origin: 100% 0%;
+	}
+	100% {
+		transform: scaleY(1);
+		transform-origin: 100% 0%;
+	}
+}
+
+@keyframes pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+}
