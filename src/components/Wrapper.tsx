@@ -1,17 +1,22 @@
-import DefaultLayout from "@/layouts/DefaultLayout"
-import HomeView from "@/modules/home/HomeView"
-import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import LoginView from "@/modules/auth/login/LoginView"
-import TodoListView from "@/modules/to-do-list/TodoListView.tsx"
-import { Toaster } from "./ui/toaster"
-import NotFoundView from "@/modules/not-found/NotFoundView"
-import AuthLayout from "@/layouts/AuthLayout"
-import LogView from "@/modules/log/LogView"
-import ViewersView from "@/modules/viewers/ViewersView"
-import { store } from "@/store"
-import { Provider } from "react-redux"
-import Loader from "@/components/Loader.tsx"
+import DefaultLayout from "@/layouts/DefaultLayout";
+import HomeView from "@/modules/home/HomeView";
+import {
+	Navigate,
+	RouterProvider,
+	createBrowserRouter,
+} from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import LoginView from "@/modules/auth/login/LoginView";
+import TodoListView from "@/modules/to-do-list/TodoListView.tsx";
+import NotFoundView from "@/modules/not-found/NotFoundView";
+import AuthLayout from "@/layouts/AuthLayout";
+import LogView from "@/modules/log/LogView";
+import ViewersView from "@/modules/viewers/ViewersView";
+import { store } from "@/store";
+import { Provider } from "react-redux";
+import Loader from "@/components/Loader.tsx";
+import CameraView from "@/modules/camera/CameraView.tsx";
+import { Toaster } from "./ui/toaster";
 
 const router = createBrowserRouter([
 	{
@@ -34,6 +39,10 @@ const router = createBrowserRouter([
 				path: "viewers",
 				element: <ViewersView />,
 			},
+			{
+				path: "camera",
+				element: <CameraView />,
+			},
 		],
 	},
 	{
@@ -54,10 +63,10 @@ const router = createBrowserRouter([
 		path: "*",
 		element: <NotFoundView />,
 	},
-])
+]);
 
 const Wrapper = () => {
-	const queryClient = new QueryClient()
+	const queryClient = new QueryClient();
 
 	return (
 		<>
@@ -69,7 +78,7 @@ const Wrapper = () => {
 				</QueryClientProvider>
 			</Provider>
 		</>
-	)
-}
+	);
+};
 
-export default Wrapper
+export default Wrapper;
