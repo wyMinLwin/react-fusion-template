@@ -2,49 +2,49 @@ import {ListBulletIcon, ActivityLogIcon, ViewGridIcon, CameraIcon, FileTextIcon,
 
 export const sidebarData = [
     {
-        routeNames: ['to-do-list'],
+        routeNames: ['/to-do-list'],
         name: 'title.to-do-list',
         icon: ListBulletIcon,
         subMenu: null
     },
     {
-        routeNames: ['log'],
+        routeNames: ['/log'],
         name: 'title.log',
         icon: ActivityLogIcon,
         subMenu: null
     },
     {
-        routeNames: ['viewers'],
+        routeNames: ['/viewers'],
         name: 'title.viewers',
         icon: ViewGridIcon,
         subMenu: null
     },
     {
-        routeNames: ['camera'],
+        routeNames: ['/camera'],
         name: 'title.camera',
         icon: CameraIcon,
         subMenu: null
     },
     {
-        routeNames: ['segments'],
+        routeNames: ['/segments'],
         name: 'title.segments',
         icon: FileTextIcon,
         subMenu: null
     },
     {
-        routeNames: ['text-to-speech'],
+        routeNames: ['/text-to-speech'],
         name: 'title.text-to-speech',
         icon: FileTextIcon,
         subMenu: null
     },
     {
-        routeNames: ['speech-to-text'],
+        routeNames: ['/speech-to-text'],
         name: 'title.speech-to-text',
         icon: FileTextIcon,
         subMenu: null
     },
     {
-        routeNames: ['json'],
+        routeNames: ['/json'],
         name: 'title.json',
         icon: ArchiveIcon,
         subMenu: null
