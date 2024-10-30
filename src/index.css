@@ -163,78 +163,13 @@
 	animation: float-up 25s linear infinite;
 	bottom: -150px;
 }
-/* 
-.login-boxes li:nth-child(1) {
-	left: 25%;
-	width: 80px;
-	height: 80px;
-	animation-delay: 0s;
-}
 
-.login-boxes li:nth-child(2) {
-	left: 10%;
-	width: 20px;
-	height: 20px;
-	animation-delay: 2s;
-	animation-duration: 12s;
+/* table loader */
+.table-loader {
+	height: 2px;
+	width: 100%;
+	--c: no-repeat linear-gradient(hsl(var(--primary)) 0 0);
+	background: var(--c), var(--c), hsl(var(--accent));
+	background-size: 60% 100%;
+	animation: table-loading-bar 4s infinite;
 }
-
-.login-boxes li:nth-child(3) {
-	left: 70%;
-	width: 20px;
-	height: 20px;
-	animation-delay: 4s;
-}
-
-.login-boxes li:nth-child(4) {
-	left: 40%;
-	width: 60px;
-	height: 60px;
-	animation-delay: 0s;
-	animation-duration: 18s;
-}
-
-.login-boxes li:nth-child(5) {
-	left: 65%;
-	width: 20px;
-	height: 20px;
-	animation-delay: 0s;
-}
-
-.login-boxes li:nth-child(6) {
-	left: 75%;
-	width: 110px;
-	height: 110px;
-	animation-delay: 3s;
-}
-
-.login-boxes li:nth-child(7) {
-	left: 35%;
-	width: 150px;
-	height: 150px;
-	animation-delay: 7s;
-}
-
-.login-boxes li:nth-child(8) {
-	left: 50%;
-	width: 25px;
-	height: 25px;
-	animation-delay: 15s;
-	animation-duration: 45s;
-}
-
-.login-boxes li:nth-child(9) {
-	left: 20%;
-	width: 15px;
-	height: 15px;
-	animation-delay: 2s;
-	animation-duration: 35s;
-}
-
-.login-boxes li:nth-child(10) {
-	left: 85%;
-	width: 150px;
-	height: 150px;
-	animation-delay: 0s;
-	animation-duration: 11s;
-} */

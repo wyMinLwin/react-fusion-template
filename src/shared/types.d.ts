@@ -1,19 +1,25 @@
+export type APIResponse<T> = {
+	message: string
+	status: number
+	data: T
+}
+
 export type TestType = {
-	id: number;
-	title: string;
-	description: string;
-	category: string;
-	price: number;
-	discountPercentage: number;
-	rating: number;
-	stock: number;
-	tags: string[];
-	brand: string;
-	sku: string;
-	weight: number;
+	id: number
+	title: string
+	description: string
+	category: string
+	price: number
+	discountPercentage: number
+	rating: number
+	stock: number
+	tags: string[]
+	brand: string
+	sku: string
+	weight: number
 	dimensions: {
-		width: number;
-		height: number;
-		depth: number;
-	};
-};
+		width: number
+		height: number
+		depth: number
+	}
+}

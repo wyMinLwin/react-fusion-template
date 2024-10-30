@@ -8,6 +8,7 @@ import { Toaster } from "./ui/toaster"
 import NotFoundView from "@/modules/not-found/NotFoundView"
 import AuthLayout from "@/layouts/AuthLayout"
 import LogView from "@/modules/log/LogView"
+import ViewersView from "@/modules/viewers/ViewersView"
 
 const router = createBrowserRouter([
 	{
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
 			{
 				path: "log",
 				element: <LogView />,
+			},
+			{
+				path: "viewers",
+				element: <ViewersView />,
 			},
 		],
 	},
