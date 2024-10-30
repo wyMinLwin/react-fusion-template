@@ -11,7 +11,6 @@ import LogView from "@/modules/log/LogView"
 import ViewersView from "@/modules/viewers/ViewersView"
 import {store} from "@/store";
 import {Provider} from "react-redux";
-import {Toaster} from "@/components/ui/toaster"
 import Loader from "@/components/Loader.tsx";
 
 const router = createBrowserRouter([
@@ -69,7 +68,6 @@ const Wrapper = () => {
                     <RouterProvider router={router}></RouterProvider>
                 </QueryClientProvider>
             </Provider>
-			<Toaster />
         </>
     )
 }
