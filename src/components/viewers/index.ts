@@ -1,2 +1,2 @@
-export { default as ImageViewer } from './ImageViewer'
-// export { default as PDFViewer } from './PDFViewer.vue'
+export { default as ImageViewer } from "./ImageViewer"
+export { default as PDFViewer } from "./PDFViewer"
