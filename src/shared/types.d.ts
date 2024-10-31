@@ -34,3 +34,13 @@ export type TodoType = {
     status: 'In Progress' | 'Completed' | 'Not Started'
 }
 
+export type LanguageType = 'th-TH' | 'en-US'
+export type GenderType = 'Male' | 'Female'
+
+export type APIResponse<T> = {
+    message: string
+    status: number
+    data: T
+}
+
+
