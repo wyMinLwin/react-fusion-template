@@ -17,6 +17,7 @@ import { Provider } from "react-redux";
 import Loader from "@/components/Loader.tsx";
 import CameraView from "@/modules/camera/CameraView.tsx";
 import { Toaster } from "./ui/toaster";
+import JsonView from "@/modules/json/JsonView";
 
 const router = createBrowserRouter([
 	{
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
 			{
 				path: "camera",
 				element: <CameraView />,
+			},
+			{
+				path: "json",
+				element: <JsonView />,
 			},
 		],
 	},

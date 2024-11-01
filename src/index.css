@@ -255,3 +255,9 @@
 	color: white;
 	user-select: none;
 }
+
+.data-type {
+	@apply w-fit px-px text-xs bg-gray-200;
+
+	margin-block: 4px !important;
+}

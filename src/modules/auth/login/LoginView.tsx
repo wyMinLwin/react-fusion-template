@@ -43,6 +43,7 @@ const LoginView = () => {
 			email: "",
 			password: "",
 		},
+		shouldUnregister: true
 	})
 
 	const { mutate: loginUser } = loginMutation.useMutation({
@@ -90,6 +91,7 @@ const LoginView = () => {
 						src={ReactIcon}
 						alt="React Logo"
 						className="w-12 h-12"
+						loading="lazy"
 					/>
 					<p className="text-[10px] leading-[0.5rem] text-gray-400 font-semibold tracking-normal pb-4">
 						<span className="text-primary">FUSION </span>

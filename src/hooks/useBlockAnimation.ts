@@ -28,7 +28,7 @@ export default function useBlockAnimation() {
 			let size = left * (Math.random() * 100)
 			size = Math.min(Math.max(size, 30), Math.random() * (150 - 50) + 50)
 
-			const delay = (Math.random() * 2).toFixed(2)
+			const delay = (Math.random() * 2).toFixed(2) + b
 
 			const randomDurationFactor = Math.random() * (1.5 - 0.8) + 0.8
 			const baseDuration = size / 100 + randomDurationFactor
