@@ -15,7 +15,7 @@ import CopyButton from "@/components/button-with-functions/CopyButton"
 
 type ValuesType = {
 	title?: string
-	audioFile?: File | null
+	audioFile?: File
 	language?: string
 	token?: string
 }

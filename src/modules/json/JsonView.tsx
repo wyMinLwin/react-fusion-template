@@ -33,13 +33,15 @@ const formSchema = z.object({
 			required_error: "Title is required",
 		})
 		.min(2),
-	audioFile: z.instanceof(File).nullable(),
+	audioFile: z.instanceof(File),
 	language: z.string({
 		required_error: "Language is required",
 	}),
-	token: z.string({
-		required_error: "Token is required",
-	}),
+	token: z
+		.string({
+			required_error: "Token is required",
+		})
+		.min(2, { message: "Token is required" }),
 })
 
 type FormSchema = z.infer<typeof formSchema>
@@ -50,7 +52,7 @@ const JsonView = () => {
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			title: "",
-			audioFile: null,
+			audioFile: undefined,
 			language: "en-US",
 			token: "",
 		},
