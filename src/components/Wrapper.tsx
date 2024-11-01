@@ -18,6 +18,8 @@ import Loader from "@/components/Loader.tsx";
 import CameraView from "@/modules/camera/CameraView.tsx";
 import { Toaster } from "./ui/toaster";
 import JsonView from "@/modules/json/JsonView";
+import SegmentsView from "@/modules/segments/SegmentsView.tsx";
+import TextToSpeechView from "@/modules/text-to-speech/TextToSpeechView";
 
 const router = createBrowserRouter([
 	{
@@ -48,6 +50,14 @@ const router = createBrowserRouter([
 				path: "json",
 				element: <JsonView />,
 			},
+			{
+				path: "segments",
+				element: <SegmentsView />
+			},
+			{
+				path: "text-to-speech",
+				element: <TextToSpeechView />
+			}
 		],
 	},
 	{
